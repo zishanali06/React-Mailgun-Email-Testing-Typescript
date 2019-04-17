@@ -9,7 +9,7 @@ router.get('/api/hello', (req, res, next) => {
 
 router.post('/api/contact', async (req, res, next) => {
     try {
-        await sendEmail('zishanali06@gmail.com', 'no-reply@test.com', 'Zishan is the Best', req.body.message);
+        await sendEmail(req.body.to , 'no-reply@test.com', req.body.subject, req.body.message);
         res.send(`Message has been Sent with body of ${req.body.message}`);
     } catch (error) {
         console.log(error);
